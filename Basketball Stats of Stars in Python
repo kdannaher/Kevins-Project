@@ -44,24 +44,61 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from IPython.display import display
 
+#the desired links for the players we want
 links=['https://en.wikipedia.org/wiki/Michael_Jordan'\
        ,'https://en.wikipedia.org/wiki/Kobe_Bryant'\
       ,'https://en.wikipedia.org/wiki/LeBron_James'\
       ,'https://en.wikipedia.org/wiki/Stephen_Curry']
+#names of the players we are webscraping for
 names=['Michael Jordan','Kobe Bryant','Lebron James','Stephen Curry']
 
-
+#creating a dictionary for each player using the links
 michael_jordan_dict=get_basketball_stats(links[0])
 kobe_bryant_dict=get_basketball_stats(links[1])
 lebron_james_dict=get_basketball_stats(links[2])
 stephen_curry_dict=get_basketball_stats(links[3])
 
+#putting each player's dictionary into a DataFrame
 michael_jordan = pd.DataFrame(michael_jordan_dict)
 kobe_bryant = pd.DataFrame(kobe_bryant_dict)
 lebron_james = pd.DataFrame(lebron_james_dict)
 stephen_curry = pd.DataFrame(stephen_curry_dict)
 
+#displaying the head (first 5 rows of data) of the DataFrame as a table
 display(michael_jordan.head())
 display(kobe_bryant.head())
 display(lebron_james.head())
 display(stephen_curry.head())
+
+
+import matplotlib.pyplot as plt
+
+#each player's dataframe is plotted with a simple graph
+
+data_frame = pd.DataFrame(michael_jordan)
+plt.plot(data_frame[['Points per game']],label=michael_jordan)
+plt.legend('Michael')
+plt.xlabel('years')
+plt.ylabel('Points per game')
+plt.show()
+
+data_frame = pd.DataFrame(kobe_bryant)
+plt.plot(data_frame[['Points per game']],label=kobe_bryant)
+plt.legend('Kobe')
+plt.xlabel('years')
+plt.ylabel('Points per game')
+plt.show()
+
+data_frame = pd.DataFrame(lebron_james)
+plt.plot(data_frame[['Points per game']],label=lebron_james)
+plt.legend('Lebron')
+plt.xlabel('years')
+plt.ylabel('Points per game')
+plt.show()
+
+data_frame = pd.DataFrame(lebron_james)
+plt.plot(data_frame[['Points per game']],label=lebron_james)
+plt.legend('Lebron')
+plt.xlabel('years')
+plt.ylabel('Points per game')
+plt.show()
